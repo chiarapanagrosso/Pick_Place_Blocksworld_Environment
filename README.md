@@ -7,7 +7,7 @@ Chiara Panagrosso, Roberto Rocco, William Notaro
 
 ## :clipboard: Requirements
 This package **requires MoveIt2 to be pre-installed** on your system. 
-:pointright: Follow the [official MoveIt2 installation guide](https://moveit.picknik.ai/humble/doc/tutorials/getting_started/getting_started.html) to set it up properly.
+Follow the [official MoveIt2 installation guide](https://moveit.picknik.ai/humble/doc/tutorials/getting_started/getting_started.html) to set it up properly.
 > :bangbang: This package will **not work** without a working MoveIt installation.
 
 # :hammer: Build
