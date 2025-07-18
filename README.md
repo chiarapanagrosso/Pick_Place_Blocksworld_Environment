@@ -1,21 +1,23 @@
+
 # Pick and Place in a Blocksworld Environment using HTN Planning and MoveIt
 
 ## :package: About
 
 This package contains the developed code for the final project of the Planning and Navigation 2024/25 Course. The authors of the package are:
-Chiara Panagrosso, Roberto Rocco, William Notaro. Here's an example video:
+Chiara Panagrosso, Roberto Rocco, William Notaro. Here's an example video
 
-https://private-user-images.githubusercontent.com/182479543/467966907-3edd743f-68f3-4ea3-b1fa-e9862884b567.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTI4MzIyNjYsIm5iZiI6MTc1MjgzMTk2NiwicGF0aCI6Ii8xODI0Nzk1NDMvNDY3OTY2OTA3LTNlZGQ3NDNmLTY4ZjMtNGVhMy1iMWZhLWU5ODYyODg0YjU2Ny5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNzE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDcxOFQwOTQ2MDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xOGU4ODg4YWE5ODgyMDExMjRmYjkzNzQ2ZWQyNzliY2MxMDk2YjFiNTgwNTcxN2E2ZGI4NWUxZTJlNTQ5YTIyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.LG3ngy5hFESU2gdbvK5PeTS0XtQaC5QIdDmtcbVY-00
+https://private-user-images.githubusercontent.com/182740140/467962562-0d6c1e1e-ce1d-46a5-9862-abccb1980fe2.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTI4MzIxMDMsIm5iZiI6MTc1MjgzMTgwMywicGF0aCI6Ii8xODI3NDAxNDAvNDY3OTYyNTYyLTBkNmMxZTFlLWNlMWQtNDZhNS05ODYyLWFiY2NiMTk4MGZlMi5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNzE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDcxOFQwOTQzMjNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04NDE2NmU0MWQxNDBkNTM3ZjdkMmMzNmU1ZGZiNjlkODA4YTJmZmFlZDQzYjFkZGM1ZDg0N2ExMWVjYmRhNjBiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.PxCx_JmYlHH0dlaoo6u91ZOYYkAP6NSsMMZrTjmxWW8
 
 ## :clipboard: Requirements
-This package **requires MoveIt2 to be pre-installed** on your system. 
-Follow the [official MoveIt2 installation guide](https://moveit.picknik.ai/humble/doc/tutorials/getting_started/getting_started.html) to set it up properly.
+This package **requires MoveIt2 to be pre-installed** on your system.
+
+:point_right: Follow the [official MoveIt2 installation guide](https://moveit.picknik.ai/humble/doc/tutorials/getting_started/getting_started.html) to set it up properly.
 > :bangbang: This package will **not work** without a working MoveIt installation.
 
 # :hammer: Build
 1. Clone the repository in the `src` folder of your ROS 2 workspace.  If you want to only clone the content files without creating the repo folder, use
 ```
-git clone https://github.com/chiarapanagrosso/Pick_Place_Blocksworld_Environment.git
+git clone https://github.com/chiarapanagrosso/Pick_Place_Blocksworld_Environment.git .
 ```
 2. Build the workspace
 ```
@@ -46,20 +48,20 @@ cd MoveIt-Docker
 ```
 2. Inside the terminal of the cloned repo make all the bash files executable:
 ```sh
-$ chmod +x *.sh
+chmod +x *.sh
 ```
 
 3. Build the image: 
 
 ```
-$ ./docker_build_image.sh <IMAGE_NAME>
+./docker_build_image.sh <IMAGE_NAME>
 ```
 where <IMAGE_NAME> is a name for the image you want to build. The build will take at least 1 hour.
-If you have up to 16Gb of RAM you and want to speed building of the image you can substitute inside the Dockerfile the following line:
+If you have up to 32Gb of RAM you and want to speed building of the image you can substitute inside the Dockerfile the following line:
 ```
 MAKEFLAGS="-j4 -l1" colcon build --executor sequential --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
-with:  
+with:
 ```
  colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
@@ -69,7 +71,7 @@ with:
 ```
 ./docker_run_container.sh <IMAGE_NAME> <CONTAINER_NAME> <FOLDER_NAME>
 ```
-where <IMAGE_NAME> is the name of the image you have just built, while <CONTAINER_NAME> is a name for the container hosting the image. <FOLDER_NAME> is the name of the local folder you want to mount inside the container ROS2 ws. In order to run the application it must correspond to the name of the folder where **Pick_Place_Blocksworld_Environment** has been cloned.
+where <IMAGE_NAME> is the name of the image you have just built, while <CONTAINER_NAME> is a name for the container hosting the image. <FOLDER_NAME> is the name of the local folder you want to mount inside the container ROS2 ws. Notice that, by default, Docker will create the specified folder in "/home/". In order to run the application, **Pick_Place_Blocksworld_Environment** must be cloned in such folder.
 
 
 5. Once inside the container, build and source the workspace:
@@ -78,6 +80,8 @@ where <IMAGE_NAME> is the name of the image you have just built, while <CONTAINE
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
 ```
+
+In the case of stderrs for some packages, keep colcon building until all packages are built.
 
 ### :bulb: Notes
 
@@ -101,10 +105,10 @@ Gazebo simulation starts in the "PAUSED" state. To make it play click on the bot
 ```
 ros2 run mtc_package manager
 ```
-3. Once the console shows the message from `mtc_node` saying **"Parsing the plan..."**, in another terminal you can launch the **HTN Planner**, which will generate the sequence of tasks to be performed, with the following:
+3. Once the console shows the message from `mtc_node` saying **"Waiting for the plan..."**, in another terminal you can launch the **HTN Planner**, which will generate the sequence of tasks to be performed, with the following:
 
 ```
-$ ros2 launch blocksword_planner htn_launch.py 
+ros2 launch blocksword_planner htn_launch.py 
 ``` 
 
 ## :warning: Warning
@@ -117,4 +121,3 @@ This is caused by the unsuccessful update of the GZ_SIM_RESOURCE_PATH environmen
 ```
 export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:~/ros2_ws/src/ros2_robotiq_gripper/
 ```
-
