@@ -3,7 +3,9 @@
 ## :package: About
 
 This package contains the developed code for the final project of the Planning and Navigation 2024/25 Course. The authors of the package are:
-Chiara Panagrosso, Roberto Rocco, William Notaro
+Chiara Panagrosso, Roberto Rocco, William Notaro. Here's an example video:
+
+https://private-user-images.githubusercontent.com/182479543/467966907-3edd743f-68f3-4ea3-b1fa-e9862884b567.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTI4MzIyNjYsIm5iZiI6MTc1MjgzMTk2NiwicGF0aCI6Ii8xODI0Nzk1NDMvNDY3OTY2OTA3LTNlZGQ3NDNmLTY4ZjMtNGVhMy1iMWZhLWU5ODYyODg0YjU2Ny5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNzE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDcxOFQwOTQ2MDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xOGU4ODg4YWE5ODgyMDExMjRmYjkzNzQ2ZWQyNzliY2MxMDk2YjFiNTgwNTcxN2E2ZGI4NWUxZTJlNTQ5YTIyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.LG3ngy5hFESU2gdbvK5PeTS0XtQaC5QIdDmtcbVY-00
 
 ## :clipboard: Requirements
 This package **requires MoveIt2 to be pre-installed** on your system. 
