@@ -14,7 +14,7 @@ Follow the [official MoveIt2 installation guide](https://moveit.picknik.ai/humbl
 # :hammer: Build
 1. Clone the repository in the `src` folder of your ROS 2 workspace.  If you want to only clone the content files without creating the repo folder, use
 ```
-git clone https://github.com/chiarapanagrosso/Pick_Place_Blocksworld_Environment.git -b without_gripper
+git clone https://github.com/chiarapanagrosso/Pick_Place_Blocksworld_Environment.git . -b without_gripper
 ```
 2. Build the workspace
 ```
@@ -50,7 +50,7 @@ $ chmod +x *.sh
 $ ./docker_build_image.sh <IMAGE_NAME>
 ```
 where <IMAGE_NAME> is a name for the image you want to build. The build will take at least 1 hour.
-If you have up to 16Gb of RAM you and want to speed building of the image you can substitute inside the Dockerfile the following line:
+If you have up to 32Gb of RAM you and want to speed building of the image you can substitute inside the Dockerfile the following line:
 ```
 MAKEFLAGS="-j4 -l1" colcon build --executor sequential --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
@@ -64,7 +64,7 @@ with:
 ```
 ./docker_run_container.sh <IMAGE_NAME> <CONTAINER_NAME> <FOLDER_NAME>
 ```
-where <IMAGE_NAME> is the name of the image you have just built, while <CONTAINER_NAME> is a name for the container hosting the image. <FOLDER_NAME> is the name of the local folder you want to mount inside the container ROS2 ws. In order to run the application it must correspond to the name of the folder where **Pick_Place_Blocksworld_Environment** has been cloned.
+where <IMAGE_NAME> is the name of the image you have just built, while <CONTAINER_NAME> is a name for the container hosting the image. <FOLDER_NAME> is the name of the local folder you want to mount inside the container ROS2 ws. Notice that, by default, Docker will create the specified folder in "/home/". In order to run the application, **Pick_Place_Blocksworld_Environment** must be cloned in such folder.
 
 
 5. Once inside the container, build and source the workspace:
@@ -87,7 +87,7 @@ ros2 launch mtc_package pick_place.launch.py
 ```
 This launch will also loead the bridge for the Gazebo Service  `/SetEntityPose` to ROS nodes.
 
-3. Once the console shows the message from `mtc_node` saying **"Parsing the plan..."**, you can launch the **HTN Planner**, which will generate the sequence of tasks to be performed, with the following:
+3. Once the console shows the message from `mtc_node` saying **"Waiting for the plan..."**, you can launch the **HTN Planner**, which will generate the sequence of tasks to be performed, with the following:
 
 ```
 ros2 launch blocksword_planner htn_launch.py 
